@@ -1,0 +1,22 @@
+{% extends 'landing/base.html' %}
+
+{% block content %}
+<header>
+    <h1>Добро пожаловать!</h1>
+    <p>Оставьте заявку, и мы свяжемся с вами в ближайшее время.</p>
+</header>
+<main>
+    <form id="orderForm" method="POST" action="/submit/">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Имя:</label>
+            <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Телефон:</label>
+            <input type="text" id="phone" name="phone" placeholder="+7 (999) 999-99-99" required>
+        </div>
+        <button type="submit" id="submitButton">Отправить заявку</button>
+    </form>
+</main>
+{% endblock %}
